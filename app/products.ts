@@ -66,7 +66,7 @@ benefits:
   reviews: 300,
   oldPrice:1400,
   name: "Anti Aging Cream",
-  price: 980
+  price: 980,
   image: "/images/ANTI.png",
 
   desc:
