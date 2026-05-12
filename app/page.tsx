@@ -8,7 +8,7 @@ const products = [
       {
     id: 1,
     name: "Arisoo Hydrating Toner",
-    price: 15050,
+    price: 700,
     image: "/images/hydraing toner.png",
     desc: "Deep hydration for glowing skin",
     rating: 5,
@@ -16,7 +16,7 @@ const products = [
   {
     id: 2,
     name: "Vitamin C Gel Based Serum",
-    price: 1550,
+    price: 1050,
     image: "/images/serum.png",
     desc: "Brightens skin and tightens pores",
     rating: 4,
@@ -24,15 +24,15 @@ const products = [
   {
     id: 3,
     name: "Climate-Adaptive Moisturizing Cream",
-    price: 1800,
+    price: 490,
     image: "/images/cream.png",
     desc: "Soft smooth healthy skin",
     rating: 5,
   },
   {
     id: 4,
-    name: "Anti Aging Serum",
-    price: 2500,
+    name: "Anti Aging Cream",
+    price: 980,
     image: "/images/ANTI.png",
     desc: "Reduces wrinkles & fine lines",
     rating: 5,
@@ -40,7 +40,7 @@ const products = [
   {
     id: 5,
     name: "Lip and Cheek Tint",
-    price: 1250,
+    price: 630,
     image: "/images/lip tint.png",
     desc: "Smooth tinted lips with natural ingredients",
     rating: 5,
@@ -56,7 +56,7 @@ export default function Home() {
             {/* 🔥 TOP ANIMATED BAR (FIXED BLACK + PINK TEXT) */}
             <div className="topbar">
                 <div className="marquee">
-                    🚚 Free Delivery on Orders Above 5000 • 💖 Aloora Pure Skincare • ✨ Glow Naturally
+                    🚚 Free delivery on orders of 2 or more products. • 💖 Aloora Pure Skincare • ✨ Glow Naturally
                 </div>
             </div>
             <div className="whatsappBox">

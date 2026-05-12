@@ -3,9 +3,9 @@ export const products = [
   id: "Toner",
   stock: "In Stock",
   reviews: 200,
-  oldPrice:2000,
+  oldPrice:1000,
   name: "Arisoo hydrating Toner",
-  price: 1550,
+  price: 700,
   image: "/images/hydraing toner.png",
 
   desc:
@@ -23,9 +23,9 @@ export const products = [
   id: "serum",
   stock: "In Stock",
   reviews: 200,
-  oldPrice:2000,
+  oldPrice:1500,
   name: "Vitamin C Gel Based Serum",
-  price: 1550,
+  price: 1050,
   image: "/images/serum.png",
 
   desc:
@@ -43,9 +43,9 @@ benefits:
   id: "cream",
   stock: "In Stock",
   reviews: 440,
-  oldPrice:2500,
+  oldPrice:700,
   name: "Climate-Adaptive Moisturizing Cream",
-  price: 1800,
+  price: 490,
   image: "/images/cream.png",
 
   desc:
@@ -64,9 +64,9 @@ benefits:
   id: "anti-aging",
   stock: "In Stock",
   reviews: 300,
-  oldPrice:3500,
-  name: "Anti Aging Serum",
-  price: 2500,
+  oldPrice:1400,
+  name: "Anti Aging Cream",
+  price: 980
   image: "/images/ANTI.png",
 
   desc:
@@ -86,9 +86,9 @@ benefits:
   id: "lip-cheek-tint",
   stock: "In Stock",
   reviews: 600,
-  oldPrice:1500,
+  oldPrice:900,
   name: "Lip and Cheek Tint",
-  price: 1250,
+  price: 630,
   image: "/images/lip tint.png",
 
   desc:
