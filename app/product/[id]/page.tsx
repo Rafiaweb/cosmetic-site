@@ -1,4 +1,5 @@
 "use client";
+
 import { useParams } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
@@ -122,8 +123,15 @@ export default function ProductPage() {
 
       {/* LEFT IMAGE */}
       <div className="left">
-        <Image alt="" src={product.image} width={450} height={450} />
-      </div>
+  <div className="imgBox">
+    <Image
+      alt={product.name}
+      src={product.image}
+      fill
+      className="img"
+    />
+  </div>
+</div>
 
       {/* RIGHT CONTENT */}
       <div className="right">

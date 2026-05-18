@@ -9,6 +9,7 @@ const products = [
     id: 1,
     name: "Arisoo Hydrating Toner",
     price: 700,
+    oldPrice: 1000,
     image: "/images/hydraing toner.png",
     desc: "Deep hydration for glowing skin",
     rating: 5,
@@ -16,6 +17,7 @@ const products = [
   {
     id: 2,
     name: "Vitamin C Gel Based Serum",
+    oldPrice: 1500,
     price: 1050,
     image: "/images/serum.png",
     desc: "Brightens skin and tightens pores",
@@ -25,6 +27,7 @@ const products = [
     id: 3,
     name: "Climate-Adaptive Moisturizing Cream",
     price: 490,
+    oldPrice: 700,
     image: "/images/cream.png",
     desc: "Soft smooth healthy skin",
     rating: 5,
@@ -33,6 +36,7 @@ const products = [
     id: 4,
     name: "Anti Aging Cream",
     price: 980,
+    oldPrice: 1400,
     image: "/images/ANTI.png",
     desc: "Reduces wrinkles & fine lines",
     rating: 5,
@@ -41,6 +45,7 @@ const products = [
     id: 5,
     name: "Lip and Cheek Tint",
     price: 630,
+    oldPrice: 900,
     image: "/images/lip tint.png",
     desc: "Smooth tinted lips with natural ingredients",
     rating: 5,
@@ -56,7 +61,7 @@ export default function Home() {
             {/* 🔥 TOP ANIMATED BAR (FIXED BLACK + PINK TEXT) */}
             <div className="topbar">
                 <div className="marquee">
-                    🚚 Free delivery on orders of 2 or more products. • 💖 Aloora Pure Skincare • ✨ Glow Naturally
+                    🚚 Free Delivery on orders of 2 or more products. • 💖 Aloora Pure Skincare • ✨ Glow Naturally
                 </div>
             </div>
             <div className="whatsappBox">
@@ -82,8 +87,8 @@ export default function Home() {
   <Image
     src="/images/logo.png"
     alt="Aloora Pure"
-    width={120}
-    height={120}
+    width={150}
+    height={150}
     className="logo"
     priority
   />
@@ -125,8 +130,10 @@ export default function Home() {
 
         <p className="desc">{p.desc}</p>
 
-        <b className="price">Rs {p.price}</b>
-
+        <div className="priceBox">
+          <b className="newPrice">Rs {p.price}</b>
+  <span className="oldPrice">Rs {p.oldPrice}</span>
+</div>
         <div className="stars">
           {"★".repeat(p.rating)}{"☆".repeat(5 - p.rating)}
         </div>
@@ -140,6 +147,32 @@ export default function Home() {
 
             {/* STYLE */}
             <style>{`
+            //home page styles//
+.priceBox{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  align-items:center;
+  margin-top:5px;
+}
+
+.oldPrice{
+  text-decoration: line-through;
+  color: gray;
+  font-size: 20px;
+  display:block;
+  margin-top:5px;
+  color:black;
+font-weight:bold;
+}
+
+.newPrice{
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
             .whatsappBox{
   background:white;
   padding:12px 20px;
