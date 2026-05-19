@@ -39,7 +39,9 @@ a {
 
 
 /* IMAGE NATURAL CENTER */
- .img{
+ 
+
+.img{
   
   position: static !important;
   display: block;
@@ -48,4 +50,26 @@ a {
   height: auto;
   object-fit: contain;
   margin: 0 auto;
+}
+.save {
+  color: red;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.card {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
 }

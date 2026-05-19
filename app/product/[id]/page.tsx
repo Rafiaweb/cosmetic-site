@@ -30,7 +30,7 @@ const products = [
   stock: "In Stock",
   reviews: 200,
   oldPrice:1500,
-  name: "Vitamin C Gel Based Serum",
+  name: "Vitamin C Gel Serum",
   price: 1050,
   image: "/images/serum.png",
 
@@ -153,8 +153,9 @@ export default function ProductPage() {
 
         {/* SAVE TEXT */}
         <p className="save">
-          You Save Rs {(product.oldPrice ?? 0) - product.price}
-        </p>
+  You Save Rs {(product.oldPrice ?? 0) - product.price}
+</p>
+
 
         {/* VISITORS */}
         <p>👁️ Real time {product.reviews} reviews</p>
@@ -221,11 +222,13 @@ export default function ProductPage() {
 
         h2{
           margin:10px 0;
+          font-size:25px;
         }
 
         del{
           color:gray;
           margin-left:10px;
+          font-size:20px;
         }
 
         .save{

@@ -16,7 +16,7 @@ const products = [
   },
   {
     id: 2,
-    name: "Vitamin C Gel Based Serum",
+    name: "Vitamin C Gel Serum",
     oldPrice: 1500,
     price: 1050,
     image: "/images/serum.png",
@@ -81,7 +81,7 @@ export default function Home() {
 </div>
 
             {/* NAVBAR */}
-           
+           {/* ❌ DELETE THIS BLOCK FROM HOME PAGE */}
 <div className="nav">
   <div className="logoWrap">
   <Image
@@ -125,7 +125,9 @@ export default function Home() {
         <div className="brand">Aloora Pure</div>
 
         <img src={p.image} className="img" />
-
+<div className="badge">
+  -{Math.round(((p.oldPrice - p.price) / p.oldPrice) * 100)}% OFF
+</div>
         <h3 className="title">{p.name}</h3>
 
         <p className="desc">{p.desc}</p>
@@ -134,6 +136,12 @@ export default function Home() {
           <b className="newPrice">Rs {p.price}</b>
   <span className="oldPrice">Rs {p.oldPrice}</span>
 </div>
+
+{p.oldPrice > p.price && (
+  <p className="save">
+    You Save Rs {p.oldPrice - p.price}
+  </p>
+)}
         <div className="stars">
           {"★".repeat(p.rating)}{"☆".repeat(5 - p.rating)}
         </div>
@@ -141,6 +149,7 @@ export default function Home() {
         <button className="btn">Add to Cart</button>
 
       </div>
+      
     </Link>
   ))}
 </div>
@@ -162,14 +171,13 @@ export default function Home() {
   font-size: 20px;
   display:block;
   margin-top:5px;
-  color:black;
 font-weight:bold;
 }
 
 .newPrice{
   color: black;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 
@@ -358,7 +366,7 @@ font-weight:bold;
 
 .img{
   width:100%;
-  height:180px;
+  height:274px;
   object-fit:cover;
   border-radius:10px;
 }

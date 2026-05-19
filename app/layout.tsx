@@ -7,17 +7,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
 
         {/* SIMPLE LOGO ONLY */}
-        <div className="logoCorner">
-          <a href="/">
-            <Image
-              src="/images/logo.png"
-              alt="Aloora Pure"
-              width={80}
-              height={80}
-              className="logo"
-            />
-          </a>
-        </div>
+       
 
         {children}
 
