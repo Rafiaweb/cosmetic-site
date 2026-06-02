@@ -174,10 +174,10 @@ const cardStyle = {
   borderRadius: "8px",
 };
 
-const imgStyle = {
+const imgStyle: React.CSSProperties = {
   objectFit: "cover",
   borderRadius: "8px",
-};
+}
 
 const inputStyle = {
   width: "100%",
