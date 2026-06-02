@@ -1,5 +1,5 @@
 "use client";
-
+import { addToCart } from "@/lib/cart";
 import { useState } from "react";
  import Link from "next/link";
 import Image from "next/image";
@@ -117,45 +117,96 @@ export default function Home() {
   <Link href="/about" onClick={() => setMenu(false)}>About Us</Link>
   <Link href="/contact" onClick={() => setMenu(false)}>Contact Us</Link>
 </div>
-           <div className="grid">
+          <div className="grid">
   {products.map((p) => (
-    <Link key={p.id} href={`/product/${p.id}`}>
-      <div className="card">
+    <div key={p.id} className="card">
 
-        <div className="brand">Aloora Pure</div>
+      <div className="brand">Aloora Pure</div>
 
+      {/* ONLY IMAGE + TITLE CLICKABLE */}
+      <Link href={`/product/${p.id}`}>
         <img src={p.image} className="img" />
-<div className="badge">
-  -{Math.round(((p.oldPrice - p.price) / p.oldPrice) * 100)}% OFF
-</div>
         <h3 className="title">{p.name}</h3>
+      </Link>
 
-        <p className="desc">{p.desc}</p>
+      <p className="desc">{p.desc}</p>
 
-        <div className="priceBox">
-          <b className="newPrice">Rs {p.price}</b>
-  <span className="oldPrice">Rs {p.oldPrice}</span>
-</div>
-
-{p.oldPrice > p.price && (
-  <p className="save">
-    You Save Rs {p.oldPrice - p.price}
-  </p>
-)}
-        <div className="stars">
-          {"★".repeat(p.rating)}{"☆".repeat(5 - p.rating)}
-        </div>
-
-        <button className="btn">Add to Cart</button>
-
+      <div className="priceBox">
+        <b className="newPrice">Rs {p.price}</b>
+        <span className="oldPrice">Rs {p.oldPrice}</span>
       </div>
-      
-    </Link>
+
+      {p.oldPrice > p.price && (
+        <p className="save">
+          You Save Rs {p.oldPrice - p.price}
+        </p>
+      )}
+
+      <div className="stars">
+        {"★".repeat(p.rating)}{"☆".repeat(5 - p.rating)}
+      </div>
+
+      {/* 🛒 ADD TO CART (OUTSIDE LINK) */}
+      <button
+        className="btn1"
+        onClick={(e) => {
+          e.stopPropagation(); // 🔥 IMPORTANT
+          let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+          const existing = cart.find((item) => item.id === p.id);
+
+          if (existing) {
+            existing.qty += 1;
+          } else {
+            cart.push({ ...p, qty: 1 });
+          }
+
+          localStorage.setItem("cart", JSON.stringify(cart));
+
+          alert("Added to cart");
+        }}
+      >
+        Add to Cart
+      </button>
+
+      {/* BUY NOW */}
+      <button class="btn1"
+  onClick={(e) => {
+    e.preventDefault();
+
+    localStorage.setItem(
+      "buyNowProduct",
+      JSON.stringify(p)
+    );
+
+    window.location.href = "/checkout";
+  }}
+>
+  Buy Now
+</button>
+
+
+    </div>
   ))}
 </div>
 
             {/* STYLE */}
             <style>{`
+            .btn1{background: black;
+  color: white;
+  padding: 10px 21px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+  }
+.btn1:hover {
+  transform: scale(1.08);
+}
+
+
+
             //home page styles//
 .priceBox{
   display:flex;
@@ -202,7 +253,7 @@ font-weight:bold;
   background:#25D366;
   color:white;
   text-decoration:none;
-  padding:10px 20px;
+  padding:5px 13px;
   border-radius:30px;
   font-size:14px;
   font-weight:600;
@@ -216,12 +267,22 @@ font-weight:bold;
 @media(max-width:768px){
 
   .whatsappBox{
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:nowrap !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:8px !important;
+  width:auto !important;
+  position:relative !important;
+  left:auto !important;
+  right:auto !important;
     padding:12px;
     gap:10px;
   }
 
   .whatsappBox p{
-    font-size:13px;
+    font-size:12px;
   }
 
   .whatsappBtn{
@@ -366,7 +427,7 @@ font-weight:bold;
 
 .img{
   width:100%;
-  height:274px;
+  height:337px;
   object-fit:cover;
   border-radius:10px;
 }
@@ -393,12 +454,12 @@ font-weight:bold;
   margin:5px 0;
 }
 
-.btn{
+.btn1{
   background:black;
   color:white;
-  padding:8px 12px;
+  padding:10px 21px;
   border:none;
-  border-radius:8px;
+  border-radius:25px;
   cursor:pointer;
 }
   

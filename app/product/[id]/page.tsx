@@ -1,8 +1,9 @@
-"use client";
 
-import { useParams } from "next/navigation";
-import { useState } from "react";
+"use client";
+import { addToCart } from "@/lib/cart";
+import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
+import { useState } from "react";
 
 const products = [
   {
@@ -112,6 +113,7 @@ Ingredients:
 
 export default function ProductPage() {
   const { id } = useParams();
+  const router = useRouter();
   const product = products.find((p) => p.id === id);
 
   const [open, setOpen] = useState("");
@@ -164,7 +166,36 @@ export default function ProductPage() {
         <p className="desc">{product.desc}</p>
 
         {/* BUY BUTTON */}
-        <button className="btn">Buy It Now</button>
+        <button
+  className="btn1"
+  onClick={() =>
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+    })
+  }
+>
+   Add to Cart
+</button>
+<button
+  className="btn1"
+  onClick={() => {
+    const item = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      qty: 1,
+    };
+
+    localStorage.setItem("cart", JSON.stringify([item]));
+
+    router.push("/checkout");
+  }}
+>
+  Buy Now
+</button>
 
         {/* ACCORDION SECTION */}
         <div className="accordion">
@@ -239,14 +270,20 @@ export default function ProductPage() {
           color:#555;
         }
 
-        .btn{
-          background:black;
-          color:white;
-          padding:12px 20px;
-          border:none;
-          margin:15px 0;
-          cursor:pointer;
-        }
+       .btn1 {
+  background: black;
+  color: white;
+  padding: 10px 21px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.btn1:hover {
+  transform: scale(1.08);
+}
 
         .accordion div{
           background:#fff;
