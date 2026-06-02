@@ -73,7 +73,7 @@ a {
   font-weight: 700;
   padding: 4px 8px;
   border-radius: 6px;
-=======
+}
 @media (max-width: 768px) {
   .desktopMenu {
     display: none;
@@ -110,5 +110,4 @@ a {
 a {
   text-decoration: none;
   color: inherit;
->>>>>>> 6759880b619e38e371c402f1b9b0f44e2051b813
 }
