@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 export default function About() {
   return (
     <div style={{ padding: "30px", maxWidth: "800px", margin: "auto" }}>

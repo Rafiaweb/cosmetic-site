@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 "use client";
 import { addToCart } from "@/lib/cart";
 import { useState } from "react";

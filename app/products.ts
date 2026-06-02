@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 export const products = [
    {
   id: "Toner",

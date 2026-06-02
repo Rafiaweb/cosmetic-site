@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 export default function Contact() {
   return (
     <div style={{ padding: "30px", maxWidth: "700px", margin: "auto" }}>
