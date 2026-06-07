@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 
 export default function CheckoutPage() {
   const [singleProduct, setSingleProduct] = useState<any>(null);
+  const [singleQty, setSingleQty] = useState(1);
   const [cartItems, setCartItems] = useState<any[]>([]);
-
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -81,7 +81,17 @@ export default function CheckoutPage() {
           <div>
             <h3>{singleProduct.name}</h3>
             <p>Rs {singleProduct.price}</p>
-            <b>Qty: 1</b>
+            <div style={{ display: "flex", gap: "10px", alignItems: "center", marginTop: "5px" }}>
+  <button onClick={() => setSingleQty(Math.max(1, singleQty - 1))}>
+    ➖
+  </button>
+
+  <span>{singleQty}</span>
+
+  <button onClick={() => setSingleQty(singleQty + 1)}>
+    ➕
+  </button>
+</div>
           </div>
         </div>
       )}
